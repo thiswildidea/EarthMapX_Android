@@ -1,0 +1,7 @@
+.npm-cache/**/*
+android/EarthMapX/src/main/assets/**/*
+android/EarthMapX/build/**/*
+android/EarthMapX/release/**/*
+android/.gradle/**/*
+android/.idea/**/*
+android/.trae/**/*

@@ -1,6 +1,0 @@
-android/app/src/main/assets/**/*
-android/app/build/**/*
-androidandroid/app/build/**/*
-android/app/release/**/*
-android/.gradle/**/*
-android/.idea/**/*
