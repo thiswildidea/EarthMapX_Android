@@ -10,7 +10,7 @@ export interface AppState {
 }
 
 export function defaultSetting(): AppState {
-  return { language: 'zh-cn' }
+  return { language: 'en' }
 }
 
 export function getLocalSetting(): AppState {

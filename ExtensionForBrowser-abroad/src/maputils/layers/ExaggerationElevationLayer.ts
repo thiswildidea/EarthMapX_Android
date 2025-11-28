@@ -13,15 +13,16 @@ export default class ExaggerationElevationLayer extends BaseElevationLayer {
      this.id = ExaggerationElevationOption.id
      this.exaggeration = ExaggerationElevationOption.exaggeration
   }
-    public load(): Promise<any> {
+    public override load(): Promise<any> {
         this.ElevationLayer = new ElevationLayer({
             url: this.url,
             id: this.id
         });
-        return this.addResolvingPromise(this.ElevationLayer.load());
+        this.addResolvingPromise(this.ElevationLayer.load());
+        return this.ElevationLayer.load();
     }
 
-    public fetchTile(level: number, row: number, col: number, options: any) {
+    public override fetchTile(level: number, row: number, col: number, options?: any): Promise<any> {
         return this.ElevationLayer.fetchTile(level, row, col, options).then(
             (data: any) => {
                 var exaggeration = this.exaggeration;

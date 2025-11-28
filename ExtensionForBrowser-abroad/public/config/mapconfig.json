@@ -86,20 +86,6 @@
         "type": "World_Terrain_Base"
       },  
       {
-        "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer",
-        "layerEName": "World_Topo_Map",
-        "lang": "message.gis.bmapgallery.World_Topo_Map",
-        "isToken": false,
-        "visible": false,
-        "opacity": 1.0,
-        "mapType": "TileLayer",
-        "tag": "影像底图",
-        "layerCName": "影像底图",
-        "maxScale": 0,
-        "listmode": true,
-        "type": "World_Topo_Map"
-      },  
-      {
         "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer",
         "layerEName": "World_Street_Map",
         "lang": "message.gis.bmapgallery.World_Street_Map",

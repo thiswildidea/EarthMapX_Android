@@ -2,24 +2,25 @@
   <div>
 	<div class="esri-widget esri-maptoolbar">
 	  <div class="esri-maptoolbar-control">
-		<el-tooltip content="Donations to support" placement="top" close-delay="10">
+		<el-tooltip :content="$t('message.donation.Supportdevelopment')" placement="top" close-delay="10">
          <div class="esri-maptoolbar-control-button" @click="showDonateDialog">
             <span class="esri-icon-donate"></span>
 		 </div>
 		</el-tooltip>
+      
 	  </div>
 	</div>
 	
 	<!-- 支付宝捐赠对话框 -->
 	<el-dialog
       v-model="dialogVisible"
-      title="Support development"
+      :title="$t('message.donation.Supportdevelopment')"
       width="350px"
       center
       @closed="handleDialogClosed"
     >
       <div class="donate-content">
-        <p class="donate-text">If you find this extension helpful, please scan the QR code below to make a donation</p>
+        <p class="donate-text">{{ $t('message.donation.Donation_text') }}</p>
         
         <!-- 支付方式切换 -->
         <div class="payment-switcher">
@@ -29,7 +30,7 @@
             @click="switchPaymentMethod('paypal')"
           >
             <span class="payment-icon esri-icon-paypal"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span>
-            <span class="payment-name">PayPal</span>
+            <span class="payment-name">{{ $t('message.donation.PayPal') }}</span>
           </div>
           <div 
             class="payment-option" 
@@ -37,7 +38,7 @@
             @click="switchPaymentMethod('alipay')"
           >
             <span class="payment-icon esri-icon-alipay"></span>
-            <span class="payment-name">Alipay</span>
+            <span class="payment-name">{{ $t('message.donation.Alipay') }}</span>
           </div>
           <div 
             class="payment-option" 
@@ -45,7 +46,7 @@
             @click="switchPaymentMethod('wechat')"
           >
             <span class="payment-icon esri-icon-webchat"></span>
-            <span class="payment-name">WeChat Pay</span>
+            <span class="payment-name">{{ $t('message.donation.WeChatPay') }}</span>
           </div>
         </div>
         
@@ -64,14 +65,14 @@
             <template #error>
               <div class="image-slot">
                 <i class="el-icon-picture-outline"></i>
-                <p>QR code loading failed</p>
+                <p>{{ $t('message.donation.QRCodeLoadingFailed') }}</p>
               </div>
             </template>
           </el-image>
-          <p class="qrcode-hint">Click on the QR code to enlarge and view</p>
+          <p class="qrcode-hint">{{ $t('message.donation.qrcode_hint') }}</p>
         <p class="payment-tip">{{ getPaymentTipText() }}</p>
         </div>
-        <p class="donate-thank">Thank you for your support!</p>
+        <p class="donate-thank">{{ $t('message.donation.donate_thank') }}</p>
       </div>
     </el-dialog>
     
@@ -91,8 +92,9 @@
 
 <script lang="ts">
 import { ref, computed } from 'vue';
+import LanguageSwitcher from '/@/components/LanguageSwitcher.vue'
 import { ElMessage } from 'element-plus';
-
+import i18n from '/@/i18n/index';
 /**
  * 支付宝捐赠组件
  * 提供用户通过支付宝扫码进行捐赠的功能
@@ -192,16 +194,16 @@ export default {
 			let message = '';
 			switch (paymentMethod.value) {
 				case 'alipay':
-					message = 'Please scan the Alipay QR code';
+					message = i18n.global.t('message.donation.alipaymessage');
 					break;
 				case 'wechat':
-					message = 'Please scan the WeChat QR code';
+					message = i18n.global.t('message.donation.wechatmessage');
 					break;
 				case 'paypal':
-					message = 'Please scan the PayPal QR code';
+					message = i18n.global.t('message.donation.paypalmessage');
 					break;
 				default:
-					message = 'Please scan the QR code';
+					message = i18n.global.t('message.donation.paymentmessage');
 			}
 			ElMessage.info(message);
 		};
@@ -212,7 +214,7 @@ export default {
 		 */
 		const handleImageError = () => {
 			imageLoading.value = false;
-			ElMessage.error('QR code image loading failed, please check the image path');
+			ElMessage.error( i18n.global.t('message.donation.QRImageError'));
 		};
 		
 		/**
@@ -238,13 +240,13 @@ export default {
 		const getQRCodeAltText = () => {
 			switch (paymentMethod.value) {
 				case 'alipay':
-					return 'Alipay QR code';
+					return i18n.global.t('message.donation.alipay_QR_Code');
 				case 'wechat':
-					return 'WeChat Pay QR code';
+					return i18n.global.t('message.donation.wechat_QR_Code');
 				case 'paypal':
-					return 'PayPal QR code';
+					return i18n.global.t('message.donation.paypal_QR_Code');
 				default:
-					return 'Payment QR code';
+					return i18n.global.t('message.donation.payment_QR_Code');
 			}
 		};
 		
@@ -255,13 +257,13 @@ export default {
 		const getPaymentTipText = () => {
 			switch (paymentMethod.value) {
 				case 'alipay':
-					return 'Please scan the Alipay QR code';
+					return i18n.global.t('message.donation.alipay_Tip');
 				case 'wechat':
-					return 'Please scan the WeChat QR code';
+					return i18n.global.t('message.donation.wechat_Tip');
 				case 'paypal':
-					return 'Please scan the PayPal QR code';
+					return i18n.global.t('message.donation.paypal_Tip');
 				default:
-					return 'Please scan the QR code';
+					return i18n.global.t('message.donation.payment_Tip');
 			}
 		};
 		
@@ -272,13 +274,13 @@ export default {
 		const getPreviewTitle = () => {
 			switch (paymentMethod.value) {
 				case 'alipay':
-					return 'Alipay QR code';
+					return i18n.global.t('message.donation.alipay_QR_Code');
 				case 'wechat':
-					return 'WeChat Pay QR code';
+					return i18n.global.t('message.donation.wechat_QR_Code');
 				case 'paypal':
-					return 'PayPal QR code';
+					return i18n.global.t('message.donation.paypal_QR_Code');
 				default:
-					return 'Payment QR code';
+					return i18n.global.t('message.donation.payment_QR_Code');
 			}
 		};
 		

@@ -1,7 +1,7 @@
 <template>
   <div class="language-switcher">
     <el-dropdown @command="handleLanguageChange" trigger="click">
-      <el-button type="primary" :icon="Operation" circle />
+       <span class="esri-icon-donate"></span>
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item command="zh-cn" :disabled="currentLocale === 'zh-cn'">
@@ -38,11 +38,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.language-switcher {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 100;
-}
+
 </style>
 

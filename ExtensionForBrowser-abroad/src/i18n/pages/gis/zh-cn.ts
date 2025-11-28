@@ -19,7 +19,7 @@ export default {
       UIName: '图层控制框',
       LayerlistUIName: '图层列表',
       baseMap:'底图',
-      arcgisTileBaseMap:'arcgisTile',
+      arcgisTileBaseMap:'栅格',
       arcgis_tile_baseMap:{
        Imagery:'影像',
        bathymetry: "水深地形",
@@ -34,7 +34,7 @@ export default {
        Ocean_Base:'海洋图',
        OpenStreetMapLayer:'OSM',
       },
-      arcgisVectorTileBaseMap:'VectorTile',
+      arcgisVectorTileBaseMap:'矢量',
       arcgis_vector_tile_baseMap:{
         OSM_V2:"OSM_V2",
         vt_darkworld:'暗色',
@@ -55,12 +55,15 @@ export default {
       }
     },
     maptoolbar: {
+      HideToolbar: '隐藏工具',
+      ShowToolBar: '显示工具',
       UIName: '地图工具条',
       maphomeUI: '地图全图',
       mapzoominUI: '地图放大',
       mapzoomoutUI: '地图缩小',
       fullscreenUI: "地图全屏",
-      map23dswitch: "地图二三维切换",
+      locateUI: '地图定位',
+      switch23dmode: "二三维切换",
       splitscreen: "分屏幕展示",
       screenInteract: "屏幕联动",
       measurement: {

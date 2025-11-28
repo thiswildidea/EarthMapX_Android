@@ -10,7 +10,7 @@ export default {
          World_Physical_Map:"Physical",
          USA_Topo_Maps:"USA_Topo_Maps",
          NatGeo_World_Map:"NatGeo_World_Map",
-         ground:'ground mode',
+         ground:'UG',
          opacity: 'Opacity',
          Elevation: 'Load Elevation',
          ElevationExaggeration:'Elevation Exaggeration'
@@ -19,7 +19,7 @@ export default {
       UIName:'MapGallery',
       LayerlistUIName :'Layerlist',
       baseMap:'BaseMap',
-      arcgisTileBaseMap:'ArcgisTile',
+      arcgisTileBaseMap:'Tile',
       arcgis_tile_baseMap:{
        Imagery:'Imagery',
        bathymetry: "Bathymetry",
@@ -34,7 +34,7 @@ export default {
        Ocean_Base:'Ocean_Base',
        OpenStreetMapLayer:'OSM',
       },
-      arcgisVectorTileBaseMap:'VectorTile',
+      arcgisVectorTileBaseMap:'Vector',
       arcgis_vector_tile_baseMap:{
         OSM_V2:"OSM_V2",
         vt_darkworld:'Darkworld',
@@ -55,12 +55,15 @@ export default {
       }
      },
       maptoolbar:{
+      HideToolbar:'HideToolbar',
+      ShowToolBar:'ShowToolBar',
        UIName: 'maptoolbar',
        maphomeUI:'map home',
        mapzoominUI: 'map zoomin',
        mapzoomoutUI: 'map zoonout',
        fullscreenUI:"map fullscreen",
-       map23dswitch:"map 2/3 switch",
+       locateUI:'map locate',
+       switch23dmode:"map 2/3 switch",
        splitscreen:"split screen",
        screenInteract:"screen Interact",
        measurement:{

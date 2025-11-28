@@ -15,7 +15,7 @@
 		 </div>
 		  <div class="esri-maptoolbar-container-right">
 			 <div  class="esri-maptoolbar-toolitem-sepator"></div>
-			 <el-tooltip content="home" placement="left">
+			 <el-tooltip :content="$t('message.gis.maptoolbar.maphomeUI')" placement="left">
                <div  class="esri-maptoolbar-toolitem" @click="initmapcamera">
                   <span class="esri-icon-home"></span>
 			  </div>
@@ -23,12 +23,12 @@
 			 <div  class="esri-maptoolbar-toolitem-sepator"></div>
 			 <div class='esri-maptoolbar-toolitem-zoom-container'>
 			  <div class='esri-maptoolbar-toolitem-zoomitems'>
-				<el-tooltip content="zoomin" placement="left">
+				<el-tooltip :content="$t('message.gis.maptoolbar.mapzoominUI')" placement="left">
 			      <div  class="esri-maptoolbar-toolitem" @mousedown="maptoolbarzoomMoveInaction"  @click="viewzoomin">
                      <span class="esri-icon-zoomIn"></span>
 			       </div>
 				</el-tooltip>
-				  <el-tooltip content="zoomout" placement="left">
+				  <el-tooltip :content="$t('message.gis.maptoolbar.mapzoomoutUI')" placement="left">
 			        <div  class="esri-maptoolbar-toolitem" @mousedown="maptoolbarzoomMoveInaction" @click="viewzoomout">
                        <span class="esri-icon-zoomOut"></span>
 			         </div>
@@ -41,13 +41,13 @@
 				</transition>
 			 </div>
 			 <div  class="esri-maptoolbar-toolitem-sepator" v-show="false"></div>
-			<el-tooltip content="fullscreen" placement="left">
+			<el-tooltip :content="$t('message.gis.maptoolbar.fullscreenUI')" placement="left">
 			   <div  class="esri-maptoolbar-toolitem" v-show="false">
                 <span class="esri-icon-fullscreen"></span>
 			  </div>
 			</el-tooltip>
              <div  class="esri-maptoolbar-toolitem-sepator"></div>
-			 <el-tooltip content="locate" placement="left">
+			 <el-tooltip :content="$t('message.gis.maptoolbar.locateUI')" placement="left">	
 			   <div  class="esri-maptoolbar-toolitem" @click="btnlocate" >
                 <span :class="[{'esri-icon-locate':!state.islocate},{'esri-icon-locate':state.islocate},{'active':state.islocate}]"></span>
 			   </div>
@@ -100,7 +100,7 @@
 			  </div>
 			 </el-tooltip>
 			 <div  class="esri-maptoolbar-toolitem-sepator"></div> -->
-			 <el-tooltip content="23dswitch" placement="left">
+			 <el-tooltip :content="$t('message.gis.maptoolbar.switch23dmode')" placement="left">
 			   <div  class="esri-maptoolbar-toolitem" @click="switch23dmode">
                 <span :class="[{'esri-icon-3d':state.is3dmode},{'esri-icon-2d':!state.is3dmode}]"></span>
 			   </div>
@@ -134,6 +134,7 @@ import { useMapStore } from '/@/stores/modules/map'
 import {get_mapconfig} from "/@/api/map/index"
 import MaptoolbarState from '/@/components/gis/maptoolbar/MaptoolbarState';
 import { createLocateService } from '/@/components/gis/maptoolbar/locateService';
+import i18n from '/@/i18n/index';
 export default {
 	name: 'maptoolbar',
 	emits: ['switchmapmode'],
@@ -151,7 +152,7 @@ export default {
 		 initextent:null,
 		 initcamera: null,
 		 isopen:true,
-		 controlTooltips:'HideToolbar',
+		 controlTooltips: i18n.global.t('message.gis.maptoolbar.HideToolbar'),
 		 zoombarisopen:false,
 		 islocate:false,
 		 mapzoom:0,
@@ -217,7 +218,7 @@ const btnlocate=()=>{
 };
 	 const openmaptoolbar = () => {
           state.isopen=! state.isopen
-		  state.controlTooltips=state.isopen? "HideToolbar":"ShowToolBar"
+		  state.controlTooltips=state.isopen? i18n.global.t('message.gis.maptoolbar.HideToolbar'):i18n.global.t('message.gis.maptoolbar.ShowToolBar')
 	   };
 	const changeviewzoom=()=>{
 		const geosenceView =GeoSenceConfig.getGeoSenceView(props.ViewContainer_type).view

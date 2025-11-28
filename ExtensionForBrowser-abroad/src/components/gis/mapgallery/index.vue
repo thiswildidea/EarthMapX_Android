@@ -1,6 +1,6 @@
 <template>
 	<div class="esri-widget esri-mapgallery">
-	 <el-tooltip content="mapgallery" placement="left" close-delay="10">
+	 <el-tooltip :content="$t('message.gis.mapgallery.UIName')" placement="left" close-delay="10">
 	  <div class="esri-mapgallery-detail">
          <div class="esri-mapgallery-detail-Item"  :style="`background-image: url(./icons/map/mapgallery/mapgalleryUI.svg)`" @click="openmapgallery">
            
@@ -12,7 +12,7 @@
 	   <div class="esri-mapgallery-Menu-Container" v-show='state.isopen'>
            <div  class="esri-mapgallery-Menu esri-mapgallery-FMenu" >
 			<div class="esri-mapgallery-Menu-Item-container FMenu-Item-container" :class="{active:state.firstactiveindex==k}"  v-for="(v, k) in state.firstmenuconfig"  :key="k" @click="firstmenuclick(v,k)">
-             <el-tooltip :content="v.layerEName" placement="top" close-delay="10">
+             <el-tooltip :content="$t(v.lang)" placement="top" close-delay="10">
 			   <div class="esri-mapgallery-Menu-Item FMenu-Item" :style="`background-image: url(./icons/map/mapgallery/${v.layerEName}.svg)`" >
                     
                </div>
@@ -23,7 +23,7 @@
 		    <transition name="el-zoom-in-center">
 		        <div  class="esri-mapgallery-Menu esri-mapgallery-SMenu" v-show='state.sencondmenuisopen'>
 				 <div class="esri-mapgallery-Menu-Item-container SMenu-Item-container" :class="{active:state.sencondactiveindex==k}" v-for="(v, k) in state.sencondmenuconfig" :key="k" @click="sencondmenuclick(v,k)">
-                   <el-tooltip :content="v.layerEName" placement="top" close-delay="10">
+                   <el-tooltip :content="$t(v.lang)" placement="top" close-delay="10">
 					  <div class="esri-mapgallery-Menu-Item SMenu-Item"  :style="`background-image: url(./icons/map/mapgallery/${v.layerEName}.png)`" >
                       </div>
 					</el-tooltip>
@@ -34,7 +34,7 @@
 			<transition name="el-zoom-in-center">
 		        <div  class="esri-mapgallery-Menu esri-mapgallery-TMenu" :style="{maxHeight: `calc(100vh - ${state.headerHeight})`}" v-show='state.thirdmenuisopen'>
 				<div class="esri-mapgallery-Menu-Item-container TMenu-Item-container" :class="[{active:v.active&&(v.usedin2d||(v.usedin2d===false&&state.is3dmode))},{notclickable:v.usedin2d===false&&!state.is3dmode}]" v-for="(v, k) in state.thirdmenuconfig" :key="k" @click="thridmenuclick(v,k)">
-                  <el-tooltip :content="v.layerEName" placement="top" close-delay="10">
+                  <el-tooltip :content="$t(v.lang)" placement="top" close-delay="10">
 				    <div class="esri-mapgallery-Menu-Item TMenu-Item"  :style="`background-image: url(./icons/map/mapgallery/${v.layerEName}.png)`" >
                     </div>
 				  </el-tooltip >
