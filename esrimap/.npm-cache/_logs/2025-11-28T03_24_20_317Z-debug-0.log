@@ -1,0 +1,18 @@
+0 verbose cli C:\nvm4w\nodejs\node.exe C:\nvm4w\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.8.2
+2 info using node@v20.18.3
+3 silly config load:file:C:\nvm4w\v20.18.3\node_modules\npm\npmrc
+4 silly config load:file:c:\Users\yangyiwen\.npmrc
+5 error config prefix cannot be changed from project config: c:\Users\yangyiwen\.npmrc.
+6 silly config load:file:C:\Users\yangyiwen\.npmrc
+7 silly config load:file:c:\Users\yangyiwen\Desktop\esrimap\.npm-global\etc\npmrc
+8 verbose title npm config get prefix
+9 verbose argv "config" "get" "prefix"
+10 verbose logfile logs-max:10 dir:c:\Users\yangyiwen\Desktop\esrimap\.npm-cache\_logs\2025-11-28T03_24_20_317Z-
+11 verbose logfile c:\Users\yangyiwen\Desktop\esrimap\.npm-cache\_logs\2025-11-28T03_24_20_317Z-debug-0.log
+12 verbose cwd c:\Users\yangyiwen\Desktop\esrimap
+13 verbose os Windows_NT 10.0.26200
+14 verbose node v20.18.3
+15 verbose npm  v10.8.2
+16 verbose exit 0
+17 info ok

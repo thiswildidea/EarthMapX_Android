@@ -1,0 +1,6 @@
+// 保留本地Sass文件的@use语法
+@use './app.scss' as *;
+@use './gis/index.scss' as *;
+// 第三方CSS文件使用@import替代@use，避免Sass模块解析冲突
+@import '@arcgis/core/assets/esri/themes/light/main.css';
+

@@ -1,0 +1,941 @@
+{
+  "surfaceColor": "#000000",
+  "initextent": {
+    "xmin": -276797.6146989615,
+    "ymin": -129398.8781704794,
+    "xmax": 307792.7776257845,
+    "ymax": 136601.9802618057,
+    "zoom": 1,
+    "constraints": {
+      "minZoom": 23,
+      "maxZoom": 0
+    }
+  },
+  "initcamera": {
+    "fov": 55,
+    "heading": 0,
+    "tilt": 0.49999999999913347,
+    "x": 7550.363020091461,
+    "y": -5522.092829789462,
+    "z": 445034.06439390784,
+    "options": {
+      "speedFactor": 0.1,
+      "duration": 2000,
+      "maxDuration": 2000,
+      "easing": "in-expo",
+      "s": "linear, in-cubic, out-cubic, in-out-cubic, in-expo, out-expo, in-out-expo, in-out-coast-quadratic"
+    },
+    "constraints": {
+      "altitude": {
+        "max": 100000000
+      }
+    }
+  },
+  "highlightOptions": {
+    "color": [0, 191, 255, 1],
+    "haloOpacity": 0.9,
+    "fillOpacity": 0.2
+  },
+  "GISService": {
+    "geometryService": "dd",
+    "WorldElevation3D": "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer",
+    "baseMapServices": {
+      "isToken": false,
+      "serverurl": "http://192.168.113.201:8080/OneMapServer/rest/services",
+      "tokenType ": "OneMap ",
+      "layers": [{
+        "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer",
+        "layerEName": "World_Imagery",
+        "lang": "message.gis.bmapgallery.World_Imagery",
+        "isToken": false,
+        "visible": true,
+        "opacity": 1.0,
+        "mapType": "TileLayer",
+        "tag": "暗黑底图",
+        "layerCName": "暗黑底图",
+        "maxScale": 0,
+        "listmode": true,
+        "type": "World_Imagery"
+      },
+      {
+          "url": "https://tiles.arcgis.com/tiles/nGt4QxSblgDfeJn9/arcgis/rest/services/terrain_with_heavy_bathymetry/MapServer",
+          "layerEName": "heavy_bathymetry",
+          "lang": "message.gis.bmapgallery.heavy_bathymetry",
+          "isToken": false,
+          "visible": false,
+          "opacity": 1.0,
+          "mapType": "TileLayer",
+          "tag": "地形",
+          "layerCName": "地形",
+          "maxScale": 0,
+          "listmode": true,
+          "type": "heavy_bathymetry"
+      },
+      {
+        "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Terrain_Base/MapServer",
+        "layerEName": "World_Terrain_Base",
+        "lang": "message.gis.bmapgallery.World_Terrain_Base",
+        "isToken": false,
+        "visible": false,
+        "opacity": 1.0,
+        "mapType": "TileLayer",
+        "tag": "影像底图",
+        "layerCName": "影像底图",
+        "maxScale": 0,
+        "listmode": true,
+        "type": "World_Terrain_Base"
+      },  
+      {
+        "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer",
+        "layerEName": "World_Topo_Map",
+        "lang": "message.gis.bmapgallery.World_Topo_Map",
+        "isToken": false,
+        "visible": false,
+        "opacity": 1.0,
+        "mapType": "TileLayer",
+        "tag": "影像底图",
+        "layerCName": "影像底图",
+        "maxScale": 0,
+        "listmode": true,
+        "type": "World_Topo_Map"
+      },  
+      {
+        "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer",
+        "layerEName": "World_Street_Map",
+        "lang": "message.gis.bmapgallery.World_Street_Map",
+        "isToken": false,
+        "visible": false,
+        "opacity": 1.0,
+        "mapType": "TileLayer",
+        "tag": "影像底图",
+        "layerCName": "影像底图",
+        "maxScale": 0,
+        "listmode": true,
+        "type": "World_Street_Map"
+      }]
+    },
+    "bussinessLayers": [{
+        "id": "baseMap",
+        "title": "底图",
+        "tag": "baseMap",
+        "layerEName": "baseMap",
+        "lang": "message.gis.mapgallery.baseMap",
+        "visible": true,
+        "listMode": "show",
+        "layerGroups": [{
+          "id": "arcgisTileBaseMap",
+          "title": "arcgisTileBaseMap",
+          "tag": "arcgisTileBaseMap",
+          "layerEName": "arcgisTileBaseMap",
+          "lang": "message.gis.mapgallery.arcgisTileBaseMap",
+          "visible": true,
+          "listMode": "show",
+          "layers": [{
+            "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer",
+            "id": "Imagery",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "TileLayer",
+            "tag": "Imagery",
+            "title": "世界影像",
+            "layerEName": "Imagery",
+            "lang": "message.gis.mapgallery.arcgis_tile_baseMap.Imagery",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          },{
+              "url": "https://tiles.arcgis.com/tiles/nGt4QxSblgDfeJn9/arcgis/rest/services/terrain_with_heavy_bathymetry/MapServer",
+              "id": "bathymetry",
+              "visible": false,
+              "opacity": 1.0,
+              "maptype": "TileLayer",
+              "tag": "bathymetry",
+              "title": "bathymetry",
+              "layerEName": "bathymetry",
+              "lang": "message.gis.mapgallery.arcgis_tile_baseMap.bathymetry",
+              "type": "image",
+              "listMode": "show",
+              "usedin2d": true
+            },{
+            "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Terrain_Base/MapServer",
+            "id": "Terrain",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "TileLayer",
+            "tag": "Terrain",
+            "title": "Terrain",
+            "layerEName": "Terrain",
+            "lang": "message.gis.mapgallery.arcgis_tile_baseMap.Terrain",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          },{
+            "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer",
+            "id": "Topo",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "TileLayer",
+            "tag": "Topo",
+            "title": "Topo",
+            "layerEName": "Topo",
+            "lang": "message.gis.mapgallery.arcgis_tile_baseMap.Topo",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          },{
+            "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer",
+            "id": "Street",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "TileLayer",
+            "tag": "Street",
+            "title": "Street",
+            "layerEName": "Street",
+            "lang": "message.gis.mapgallery.arcgis_tile_baseMap.Street",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          },{
+            "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Shaded_Relief/MapServer",
+            "id": "S_Relief",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "TileLayer",
+            "tag": "S_Relief",
+            "title": "S_Relief",
+            "layerEName": "S_Relief",
+            "lang": "message.gis.mapgallery.arcgis_tile_baseMap.S_Relief",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          },{
+            "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Physical_Map/MapServer",
+            "id": "Physical",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "TileLayer",
+            "tag": "Physical",
+            "title": "Physical",
+            "layerEName": "Physical",
+            "lang": "message.gis.mapgallery.arcgis_tile_baseMap.Physical",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          },{
+            "url": "https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Dark_Gray_Base/MapServer",
+            "id": "Dark_Gray",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "TileLayer",
+            "tag": "Dark_Gray",
+            "title": "Dark_Gray",
+            "layerEName": "Dark_Gray",
+            "lang": "message.gis.mapgallery.arcgis_tile_baseMap.Dark_Gray",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          },{
+            "url": "https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Base/MapServer",
+            "id": "Light_Gray",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "TileLayer",
+            "tag": "Light_Gray",
+            "title": "Light_Gray",
+            "layerEName": "Light_Gray",
+            "lang": "message.gis.mapgallery.arcgis_tile_baseMap.Light_Gray",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          },{
+            "url": "https://server.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer",
+            "id": "Hillshade",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "TileLayer",
+            "tag": "Hillshade",
+            "title": "Hillshade",
+            "layerEName": "Hillshade",
+            "lang": "message.gis.mapgallery.arcgis_tile_baseMap.Hillshade",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          },{
+            "url": "https://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer",
+            "id": "Ocean_Base",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "TileLayer",
+            "tag": "Ocean_Base",
+            "title": "Ocean_Base",
+            "layerEName": "Ocean_Base",
+            "lang": "message.gis.mapgallery.arcgis_tile_baseMap.Ocean_Base",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          },
+            {
+              "url": "",
+              "id": "OpenStreetMapLayer",
+              "visible": false,
+              "opacity": 1.0,
+              "maptype": "OpenStreetMapLayer",
+              "tag": "OpenStreetMapLayer",
+              "title": "OpenStreetMapLayer",
+              "layerEName": "OpenStreetMapLayer",
+              "lang": "message.gis.mapgallery.arcgis_tile_baseMap.OpenStreetMapLayer",
+              "type": "image",
+              "listMode": "show",
+              "usedin2d": true
+            }]
+        },{
+          "id": "arcgisVectorTileBaseMap",
+          "title": "arcgisVectorTileBaseMap",
+          "tag": "arcgisVectorTileBaseMap",
+          "layerEName": "arcgisVectorTileBaseMap",
+          "lang": "message.gis.mapgallery.arcgisVectorTileBaseMap",
+          "visible": true,
+          "listMode": "show",
+          "layers": [{
+            "url": "https://jsapi.maps.arcgis.com/sharing/rest/content/items/75f4dfdff19e445395653121a95a85db/resources/styles/root.json",
+            "id": "vt_darkworld",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "VectorTileLayer",
+            "tag": "vt_darkworld",
+            "title": "vt_darkworld",
+            "layerEName": "vt_darkworld",
+            "lang": "message.gis.mapgallery.arcgis_vector_tile_baseMap.vt_darkworld",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          }, {
+            "url": "https://basemaps.arcgis.com/arcgis/rest/services/World_Contours_v2/VectorTileServer",
+            "id": "vt_Contours",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "VectorTileLayer",
+            "tag": "vt_Contours",
+            "title": "vt_Contours",
+            "layerEName": "vt_Contours",
+            "lang": "message.gis.mapgallery.arcgis_vector_tile_baseMap.vt_Contours",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          }, {
+            "url": "https://basemaps.arcgis.com/arcgis/rest/services/World_Basemap_v2/VectorTileServer",
+            "id": "vt_Basemap",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "VectorTileLayer",
+            "tag": "vt_Basemap",
+            "title": "vt_Basemap",
+            "layerEName": "vt_Basemap",
+            "lang": "message.gis.mapgallery.arcgis_vector_tile_baseMap.vt_Basemap",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          }, {
+            "url": "http://www.arcgis.com/sharing/rest/content/items/4cf7e1fb9f254dcda9c8fbadb15cf0f8/resources/styles/root.json",
+            "id": "vt_flat",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "VectorTileLayer",
+            "tag": "vt_flat",
+            "title": "vt_flat",
+            "layerEName": "vt_flat",
+            "lang": "message.gis.mapgallery.arcgis_vector_tile_baseMap.vt_flat",
+            "type": "image",
+            "listMode": "show",
+            "usedin2d": true
+          }]
+        }]
+      },
+      {
+        "id": "bussinessMap",
+        "title": "业务数据",
+        "tag": "bussinessMap",
+        "layerEName": "bussinessMap",
+        "lang": "message.gis.mapgallery.bussinessMap",
+        "visible": true,
+        "listMode": "show",
+        "layerGroups": [{
+          "id": "bussinessMap_earthquake",
+          "title": "bussinessMap_earthquake",
+          "tag": "bussinessMap_earthquake",
+          "layerEName": "bussinessMap_earthquake",
+          "lang": "message.gis.mapgallery.bussinessMap_earthquake",
+          "visible": true,
+          "listMode": "show",
+          "layers": [{
+            "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
+            "id": "earthquakes_all_month",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "GeoJSONLayer",
+            "tag": "earthquakes_all_month",
+            "title": "earthquakes_all_month",
+            "layerEName": "earthquakes_all_month",
+            "lang": "message.gis.mapgallery.bussiness_Map_earthquake.earthquakes_all_month",
+            "type": "image",
+            "listMode": "show",
+            "template": {
+              "title": "Earthquake Info",
+              "content": "Magnitude {mag} {type} hit {place} on {time}",
+              "fieldInfos": [{
+                "fieldName": "time",
+                "format": {
+                  "dateFormat": "short-date-short-time"
+                }
+              }]
+            },
+            "labelingInfo": [{
+              "labelExpressionInfo": {
+                "value": "{mag}"
+              },
+              "symbol": {
+                "type": "label-3d",
+                "symbolLayers": [{
+                  "type": "text",
+                  "material": {
+                    "color": "green"
+                  },
+                  "halo": {
+                    "size": 1,
+                    "color": "orange"
+                  },
+                  "font": {
+                    "family": "Ubuntu Mono",
+                    "size": 18,
+                    "weight": "bold"
+                  },
+                  "size": 18
+                }],
+                "verticalOffset": {
+                  "screenLength": 250,
+                  "maxWorldLength": 600,
+                  "minWorldLength": 150
+                },
+                "callout": {
+                  "type": "line",
+                  "color": [50, 50, 50],
+                  "size": 2,
+                  "border": {
+                    "color": [50, 50, 50]
+                  }
+                }
+              },
+              "labelPlacement": "above-center",
+              "maxScale": 0,
+              "minScale": 1155581.108577
+            }],
+            "renderer": {
+              "type": "simple",
+              "field": "mag",
+              "symbol": {
+                "type": "simple-marker",
+                "color": "red",
+                "outline": {
+                  "color": "white"
+                }
+              },
+              "visualVariables": [{
+                "type": "size",
+                "field": "mag",
+                "stops": [{
+                    "value": 2,
+                    "size": "4px"
+                  },
+                  {
+                    "value": 4,
+                    "size": "10px"
+                  }, {
+                    "value": 6,
+                    "size": "20px"
+                  },
+                  {
+                    "value": 8,
+                    "size": "40px"
+                  }
+                ]
+              }]
+            },
+            "usedin2d": true
+          }, {
+            "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson",
+            "id": "earthquakes_2_5_week",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "GeoJSONLayer",
+            "tag": "earthquakes_2_5_week",
+            "title": "earthquakes_2_5_week",
+            "layerEName": "earthquakes_2_5_week",
+            "lang": "message.gis.mapgallery.bussiness_Map_earthquake.earthquakes_2_5_week",
+            "type": "image",
+            "listMode": "show",
+            "template": {
+              "title": "Earthquake Info",
+              "content": "Magnitude {mag} {type} hit {place} on {time}",
+              "fieldInfos": [{
+                "fieldName": "time",
+                "format": {
+                  "dateFormat": "short-date-short-time"
+                }
+              }]
+            },
+            "labelingInfo": [{
+              "labelExpressionInfo": {
+                "value": "{mag}"
+              },
+              "symbol": {
+                "type": "label-3d",
+                "symbolLayers": [{
+                  "type": "text",
+                  "material": {
+                    "color": "green"
+                  },
+                  "halo": {
+                    "size": 1,
+                    "color": "orange"
+                  },
+                  "font": {
+                    "family": "Ubuntu Mono",
+                    "size": 18,
+                    "weight": "bold"
+                  },
+                  "size": 18
+                }],
+                "verticalOffset": {
+                  "screenLength": 250,
+                  "maxWorldLength": 600,
+                  "minWorldLength": 150
+                },
+                "callout": {
+                  "type": "line",
+                  "color": [50, 50, 50],
+                  "size": 2,
+                  "border": {
+                    "color": [50, 50, 50]
+                  }
+                }
+              },
+              "labelPlacement": "above-center",
+              "maxScale": 0,
+              "minScale": 1155581.108577
+            }],
+            "renderer": {
+              "type": "simple",
+              "field": "mag",
+              "symbol": {
+                "type": "simple-marker",
+                "color": "red",
+                "outline": {
+                  "color": "white"
+                }
+              },
+              "visualVariables": [{
+                "type": "size",
+                "field": "mag",
+                "stops": [{
+                    "value": 2,
+                    "size": "4px"
+                  },
+                  {
+                    "value": 4,
+                    "size": "10px"
+                  }, {
+                    "value": 6,
+                    "size": "20px"
+                  },
+                  {
+                    "value": 8,
+                    "size": "40px"
+                  }
+                ]
+              }]
+            },
+            "usedin2d": true
+          }, {
+            "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",
+            "id": "earthquakes_all_day",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "GeoJSONLayer",
+            "tag": "earthquakes_all_day",
+            "title": "earthquakes_all_day",
+            "layerEName": "earthquakes_all_day",
+            "lang": "message.gis.mapgallery.bussiness_Map_earthquake.earthquakes_all_day",
+            "type": "image",
+            "listMode": "show",
+            "template": {
+              "title": "Earthquake Info",
+              "content": "Magnitude {mag} {type} hit {place} on {time}",
+              "fieldInfos": [{
+                "fieldName": "time",
+                "format": {
+                  "dateFormat": "short-date-short-time"
+                }
+              }]
+            },
+            "labelingInfo": [{
+              "labelExpressionInfo": {
+                "value": "{mag}"
+              },
+              "symbol": {
+                "type": "label-3d",
+                "symbolLayers": [{
+                  "type": "text",
+                  "material": {
+                    "color": "green"
+                  },
+                  "halo": {
+                    "size": 1,
+                    "color": "orange"
+                  },
+                  "font": {
+                    "family": "Ubuntu Mono",
+                    "size": 18,
+                    "weight": "bold"
+                  },
+                  "size": 18
+                }],
+                "verticalOffset": {
+                  "screenLength": 250,
+                  "maxWorldLength": 600,
+                  "minWorldLength": 150
+                },
+                "callout": {
+                  "type": "line",
+                  "color": [50, 50, 50],
+                  "size": 2,
+                  "border": {
+                    "color": [50, 50, 50]
+                  }
+                }
+              },
+              "labelPlacement": "above-center",
+              "maxScale": 0,
+              "minScale": 1155581.108577
+            }],
+            "renderer": {
+              "type": "simple",
+              "field": "mag",
+              "symbol": {
+                "type": "simple-marker",
+                "color": "red",
+                "outline": {
+                  "color": "white"
+                }
+              },
+              "visualVariables": [{
+                "type": "size",
+                "field": "mag",
+                "stops": [{
+                    "value": 2,
+                    "size": "4px"
+                  },
+                  {
+                    "value": 4,
+                    "size": "10px"
+                  }, {
+                    "value": 6,
+                    "size": "20px"
+                  },
+                  {
+                    "value": 8,
+                    "size": "40px"
+                  }
+                ]
+              }]
+            },
+            "usedin2d": true
+          }, {
+            "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv",
+            "id": "earthquakes_heatmap_all_month",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "CSVLayer",
+            "tag": "earthquakes_heatmap_all_month",
+            "title": "earthquakes_heatmap_all_month",
+            "layerEName": "earthquakes_heatmap_all_month",
+            "lang": "message.gis.mapgallery.bussiness_Map_earthquake.earthquakes_heatmap_all_month",
+            "type": "image",
+            "listMode": "show",
+            "renderer": {
+              "type": "heatmap",
+              "colorStops": [{
+                  "color": "rgba(63, 40, 102, 0)",
+                  "ratio": 0
+                },
+                {
+                  "color": "#472b77",
+                  "ratio": 0.083
+                },
+                {
+                  "color": "#4e2d87",
+                  "ratio": 0.166
+                },
+                {
+                  "color": "#563098",
+                  "ratio": 0.249
+                },
+                {
+                  "color": "#5d32a8",
+                  "ratio": 0.332
+                },
+                {
+                  "color": "#6735be",
+                  "ratio": 0.415
+                },
+                {
+                  "color": "#7139d4",
+                  "ratio": 0.498
+                },
+                {
+                  "color": "#7b3ce9",
+                  "ratio": 0.581
+                },
+                {
+                  "color": "#853fff",
+                  "ratio": 0.664
+                },
+                {
+                  "color": "#a46fbf",
+                  "ratio": 0.747
+                },
+                {
+                  "color": "#c29f80",
+                  "ratio": 0.83
+                },
+                {
+                  "color": "#e0cf40",
+                  "ratio": 0.913
+                },
+                {
+                  "color": "#ffff00",
+                  "ratio": 1
+                }
+              ],
+              "maxDensity": 0.01,
+              "minDensity": 0
+            },
+            "labelingInfo": [{
+              "symbol": {
+                "type": "text",
+                "color": "white",
+                "font": {
+                  "family": "Noto Sans",
+                  "size ": 8
+                },
+                "haloColor": "#472b77",
+                "haloSize": 0.75
+              },
+              "labelPlacement": "center-center",
+              "labelExpressionInfo": {
+                "expression": "Text($feature.mag, '#.0')"
+              },
+              "where ": "mag > 5"
+            }],
+            "template": {
+              "title": "{place}",
+              "content": "Magnitude {mag} {type} hit {place} on {time}."
+            },
+            "usedin2d": true
+          }, {
+            "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.csv",
+            "id": "earthquakes_heatmap_25_week",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "CSVLayer",
+            "tag": "earthquakes_heatmap_25_week",
+            "title": "earthquakes_heatmap_25_week",
+            "layerEName": "earthquakes_heatmap_25_week",
+            "lang": "message.gis.mapgallery.bussiness_Map_earthquake.earthquakes_heatmap_25_week",
+            "type": "image",
+            "listMode": "show",
+            "renderer": {
+              "type": "heatmap",
+              "colorStops": [{
+                  "color": "rgba(63, 40, 102, 0)",
+                  "ratio": 0
+                },
+                {
+                  "color": "#472b77",
+                  "ratio": 0.083
+                },
+                {
+                  "color": "#4e2d87",
+                  "ratio": 0.166
+                },
+                {
+                  "color": "#563098",
+                  "ratio": 0.249
+                },
+                {
+                  "color": "#5d32a8",
+                  "ratio": 0.332
+                },
+                {
+                  "color": "#6735be",
+                  "ratio": 0.415
+                },
+                {
+                  "color": "#7139d4",
+                  "ratio": 0.498
+                },
+                {
+                  "color": "#7b3ce9",
+                  "ratio": 0.581
+                },
+                {
+                  "color": "#853fff",
+                  "ratio": 0.664
+                },
+                {
+                  "color": "#a46fbf",
+                  "ratio": 0.747
+                },
+                {
+                  "color": "#c29f80",
+                  "ratio": 0.83
+                },
+                {
+                  "color": "#e0cf40",
+                  "ratio": 0.913
+                },
+                {
+                  "color": "#ffff00",
+                  "ratio": 1
+                }
+              ],
+              "maxDensity": 0.01,
+              "minDensity": 0
+            },
+            "labelingInfo": [{
+              "symbol": {
+                "type": "text",
+                "color": "white",
+                "font": {
+                  "family": "Noto Sans",
+                  "size ": 8
+                },
+                "haloColor": "#472b77",
+                "haloSize": 0.75
+              },
+              "labelPlacement": "center-center",
+              "labelExpressionInfo": {
+                "expression": "Text($feature.mag, '#.0')"
+              },
+              "where ": "mag > 5"
+            }],
+            "template": {
+              "title": "{place}",
+              "content": "Magnitude {mag} {type} hit {place} on {time}."
+            },
+            "usedin2d": true
+          }, {
+            "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.csv",
+            "id": "earthquakes_heatmap_all_day",
+            "visible": false,
+            "opacity": 1.0,
+            "maptype": "CSVLayer",
+            "tag": "earthquakes_heatmap_all_day",
+            "title": "earthquakes_heatmap_all_day",
+            "layerEName": "earthquakes_heatmap_all_day",
+            "lang": "message.gis.mapgallery.bussiness_Map_earthquake.earthquakes_heatmap_all_day",
+            "type": "image",
+            "listMode": "show",
+            "renderer": {
+              "type": "heatmap",
+              "colorStops": [{
+                  "color": "rgba(63, 40, 102, 0)",
+                  "ratio": 0
+                },
+                {
+                  "color": "#472b77",
+                  "ratio": 0.083
+                },
+                {
+                  "color": "#4e2d87",
+                  "ratio": 0.166
+                },
+                {
+                  "color": "#563098",
+                  "ratio": 0.249
+                },
+                {
+                  "color": "#5d32a8",
+                  "ratio": 0.332
+                },
+                {
+                  "color": "#6735be",
+                  "ratio": 0.415
+                },
+                {
+                  "color": "#7139d4",
+                  "ratio": 0.498
+                },
+                {
+                  "color": "#7b3ce9",
+                  "ratio": 0.581
+                },
+                {
+                  "color": "#853fff",
+                  "ratio": 0.664
+                },
+                {
+                  "color": "#a46fbf",
+                  "ratio": 0.747
+                },
+                {
+                  "color": "#c29f80",
+                  "ratio": 0.83
+                },
+                {
+                  "color": "#e0cf40",
+                  "ratio": 0.913
+                },
+                {
+                  "color": "#ffff00",
+                  "ratio": 1
+                }
+              ],
+              "maxDensity": 0.01,
+              "minDensity": 0
+            },
+            "labelingInfo": [{
+              "symbol": {
+                "type": "text",
+                "color": "white",
+                "font": {
+                  "family": "Noto Sans",
+                  "size ": 8
+                },
+                "haloColor": "#472b77",
+                "haloSize": 0.75
+              },
+              "labelPlacement": "center-center",
+              "labelExpressionInfo": {
+                "expression": "Text($feature.mag, '#.0')"
+              },
+              "where ": "mag > 5"
+            }],
+            "template": {
+              "title": "{place}",
+              "content": "Magnitude {mag} {type} hit {place} on {time}."
+            },
+            "usedin2d": true
+          }]
+        }]
+      }
+    ]
+  },
+  "proxyConifg": {
+    "useProxy": false,
+    "url": "http://192.168.107.184/Prox/proxy.jsp",
+    "httpsDomains": [{
+      "proxyurl": "http://192.168.107.184/Prox/proxy.jsp",
+      "domainName": "192.168.113.201"
+    }]
+  }
+}

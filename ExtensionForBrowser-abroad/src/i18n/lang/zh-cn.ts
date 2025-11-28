@@ -1,0 +1,18 @@
+export default {
+  app: {
+    title: '实时地震地图',
+    language: '语言',
+    chinese: '中文',
+    english: 'English',
+    earthquake: '地震',
+    magnitude: '震级',
+    time: '时间',
+    location: '位置',
+    depth: '深度',
+    loading: '加载中...',
+    noData: '暂无数据',
+    research: '检索'
+  }
+}
+
+
