@@ -46,12 +46,12 @@ export default {
       bussinessMap:'BussinessMap',
       bussinessMap_earthquake:'Earthquake',
       bussiness_Map_earthquake:{
-        earthquakes_all_month:'All_month',
-        earthquakes_2_5_week:'2.5_week',
-        earthquakes_all_day:'All_day',
-         earthquakes_heatmap_all_month:'HM_Month',
-        earthquakes_heatmap_25_week:'HM_2.5_Week',
-        earthquakes_heatmap_all_day:'HM_Day',
+        earthquakes_all_month:'Quakes_A_Month',
+        earthquakes_2_5_week:'Quakes_2.5_Week',
+        earthquakes_all_day:'Quakes_A_Day',
+         earthquakes_heatmap_all_month:'HeatMap_A_Month',
+        earthquakes_heatmap_25_week:'HeatMap_2.5_Week',
+        earthquakes_heatmap_all_day:'HeatMap_A_Day',
       }
      },
       maptoolbar:{

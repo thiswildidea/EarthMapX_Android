@@ -369,6 +369,7 @@ $Calcite_Gray_700_Dark: #d1d1d1;
             // margin-right: 10px;
             flex-wrap: wrap;
             overflow-y: auto;
+            
         }
       }
       .esri-mapgallery-Layerlist{
@@ -380,24 +381,30 @@ $Calcite_Gray_700_Dark: #d1d1d1;
             //  overflow-y: auto;
             .esri-mapgallery-Layerlist-Item{
                 background-color: $theme_dark_arcgis_widget_bg_color;
+                border: 1px $theme_dark_arcgis_widget_bg_color solid;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 .esri-mapgallery-Layerlist-Item-name {
                      margin-right: 2px;
                      padding-left:2px;
-                     width: 40%;
                  }
+                 .esri-mapgallery-Layerlist-Item-subcontainer{
+                  width: 60%;
+                  display: flex;
+                 
+                  align-items: center;
                  .esri-mapgallery-Layerlist-Item-opacity{
-                    width: 30%;
+                    width: 80%;
                     margin-right: 2px;
                  }
                  .esri-mapgallery-Layerlist-Item-operation{
-                      width: 30%;
+                      width: 20%;
                       margin-left: 2px;
                       display: flex;
                       align-items: center;
                      .esri-mapgallery-Layerlist-Item-visible{
-                      margin-left: 2px;
+                      margin-left: 5px;
                     //   width: 15%;
                     }
                     .esri-mapgallery-Layerlist-Item-remove{
@@ -405,7 +412,7 @@ $Calcite_Gray_700_Dark: #d1d1d1;
                         // width: 15%;
                     }
                  }
-
+                }
             }
        }
         .esri-mapgallery-Layerlist-close{

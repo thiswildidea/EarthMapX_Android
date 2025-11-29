@@ -50,13 +50,14 @@
 					 </div>
 					 <div class="esri-mapgallery-Layerlist-Item-container" :style="{maxHeight: `calc(100vh - ${state.headerHeight2})`}">
                         <div class="esri-mapgallery-Layerlist-Item"   v-for="(v, k) in state.layerlistconfig" :key="k" >
-                          <span class="esri-mapgallery-Layerlist-Item-name">{{v.layerEName}}</span>
-					  	  <el-slider class="esri-mapgallery-Layerlist-Item-opacity"  v-model="v.opacity" :min=0 :max=1 :step=0.1 @change="changelayeritemopacity(v)"/>
-						  <div class="esri-mapgallery-Layerlist-Item-operation">
-                              <i   class='esri-mapgallery-Layerlist-Item-visible' :class="[{'esri-icon-visible':v.visible},{'esri-icon-non-visible':!v.visible}]" @click="onsetlayervisbile(v)"></i>
-						      <i   class='esri-icon-trash esri-mapgallery-Layerlist-Item-remove' @click="deletelayeritem(v)"></i>
-						  </div>
-						 
+                          <span class="esri-mapgallery-Layerlist-Item-name">{{$t(v.lang)}}</span>
+					  	 <div class="esri-mapgallery-Layerlist-Item-subcontainer">
+						    <el-slider class="esri-mapgallery-Layerlist-Item-opacity"  v-model="v.opacity" :min=0 :max=1 :step=0.1 @change="changelayeritemopacity(v)"/>
+						    <div class="esri-mapgallery-Layerlist-Item-operation">
+                              <i class='esri-mapgallery-Layerlist-Item-visible' :class="[{'esri-icon-visible':v.visible},{'esri-icon-non-visible':!v.visible}]" @click="onsetlayervisbile(v)"></i>
+						      <i class='esri-icon-trash esri-mapgallery-Layerlist-Item-remove' @click="deletelayeritem(v)"></i>
+						    </div>
+						 </div>
                        </div>
 					 </div>
 				  </div>

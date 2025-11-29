@@ -46,12 +46,12 @@ export default {
       bussinessMap:'业务数据',
       bussinessMap_earthquake:'地震图层',
       bussiness_Map_earthquake:{
-        earthquakes_all_month:'全月',
-        earthquakes_2_5_week:'半月',
-        earthquakes_all_day:'全天',
-        earthquakes_heatmap_all_month:'全月',
-        earthquakes_heatmap_25_week:'2.5热力图',
-        earthquakes_heatmap_all_day:'全天',
+        earthquakes_all_month:'地震全月',
+        earthquakes_2_5_week:'地震半月',
+        earthquakes_all_day:'地震全天',
+        earthquakes_heatmap_all_month:'热力图全月',
+        earthquakes_heatmap_25_week:'热力图半个月',
+        earthquakes_heatmap_all_day:'热力图全天',
       }
     },
     maptoolbar: {
