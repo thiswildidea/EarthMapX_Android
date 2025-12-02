@@ -182,6 +182,11 @@ $Calcite_Gray_700_Dark: #d1d1d1;
         color: $theme_dark_arcgis_widget_color_new;
         display: flex;
         flex-flow: row;
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+            width: 0; 
+            height: 0;
+         }
         .esri-bmapgallery-Menu-Item {
             margin: 5px;
             width: 40px;
@@ -251,7 +256,7 @@ $Calcite_Gray_700_Dark: #d1d1d1;
             display: flex;
             align-items: center;
             .esri-bmapgallery-detail-Item-opacity{
-                padding: 15%;
+                padding: 25%;
                 width: 100%;
             }
        }
@@ -282,6 +287,8 @@ $Calcite_Gray_700_Dark: #d1d1d1;
         .esri-mapgallery-Menu-Item-container{
            display: flex;
            flex-flow: column;
+            width: 42px;
+            height: 42px;
             &.active {
                 //  box-shadow: 0px 0px 0px $theme_dark_arcgis_widget_color_active inset;
                  border: 0.1px $theme_dark_arcgis_widget_color_active solid;
@@ -297,6 +304,7 @@ $Calcite_Gray_700_Dark: #d1d1d1;
             // background-color: $theme_dark_arcgis_widget_bg_color;
             color: $theme_dark_arcgis_widget_color_new;
             background-repeat: round;
+            flex-shrink: 0;
             // &.active {
             //      box-shadow: 0px 0px 0px $theme_dark_arcgis_widget_color_active inset;
             //      border: 0.1px $theme_dark_arcgis_widget_color_active solid;
@@ -365,16 +373,22 @@ $Calcite_Gray_700_Dark: #d1d1d1;
         &.esri-mapgallery-TMenu{
             display: flex;
             flex-flow: row;
-            max-width: 105px;
+            max-width: 106px;
             // margin-right: 10px;
+            justify-content: flex-start;
             flex-wrap: wrap;
             overflow-y: auto;
             
         }
       }
       .esri-mapgallery-Layerlist{
-         width: 175px;
+         width: 200px;
          color: $theme_dark_arcgis_widget_color_new;
+         overflow-y: auto;
+         &::-webkit-scrollbar {
+            width: 0; 
+            height: 0;
+         }
         //  border: 1px $theme_dark_arcgis_widget_color_blue solid;
         //  margin-left: 5px;
          .esri-mapgallery-Layerlist-Item-container{

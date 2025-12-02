@@ -11,7 +11,7 @@ export interface MapState {
 }
 
 export function defaultMapSetting(): MapState {
-  return { MainViewloaded: false, GeoSenceViewStatary:false,is3dmode:false}
+  return { MainViewloaded: false, GeoSenceViewStatary:false,is3dmode:true}
 }
 
 export function getLocalMapSetting(): MapState {

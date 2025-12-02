@@ -132,8 +132,8 @@ export default class GeoSenceView extends GeoSenceViewBase{
        this.view.ui.add(this.view_Type_Name+"_"+'Maptoolbar', 'top-right')
         this.view.ui.add(this.view_Type_Name+"_"+'Donate', 'bottom-left')
        this.view.on('click', (event:any) => {
-        // console.log(this.view.camera)
-        console.log(event.mapPoint)
+        // console.log(this.view.extent)
+        // console.log(event.mapPoint)
         })
 
       this.view.when(()=>{

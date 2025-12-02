@@ -47,11 +47,11 @@
 			  </div>
 			</el-tooltip>
              <div  class="esri-maptoolbar-toolitem-sepator"></div>
-			 <el-tooltip :content="$t('message.gis.maptoolbar.locateUI')" placement="left">	
+			 <!-- <el-tooltip :content="$t('message.gis.maptoolbar.locateUI')" placement="left">	
 			   <div  class="esri-maptoolbar-toolitem" @click="btnlocate" >
                 <span :class="[{'esri-icon-locate':!state.islocate},{'esri-icon-locate':state.islocate},{'active':state.islocate}]"></span>
 			   </div>
-			</el-tooltip>
+			</el-tooltip> -->
 			 <!-- <el-tooltip content="Measure" placement="right">
 			  <div class='esri-maptoolbar-toolitem-measurement-container'>
 			   <div class='esri-maptoolbar-toolitem-measurement'>

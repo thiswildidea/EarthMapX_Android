@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'com.thiswildidea.earthMapX'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.thiswildidea.earthMapX"
         minSdk 24
-        targetSdk 34
+        targetSdk 35
         versionCode 1
         versionName "1.0"
 
